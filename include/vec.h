@@ -2,6 +2,7 @@
 #define VEC_H
 
 #include "stdbool.h"
+#include "stddef.h"
 
 /*
  * vec.h - Dynamic integer vector library
