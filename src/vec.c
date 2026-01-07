@@ -8,7 +8,6 @@
 vec_t *vec_create() {
     vec_t *vector = malloc(sizeof(vec_t));
     if (vector == NULL) {
-        fprintf(stderr, "Could not allocate memory for Vector object\n");
         return NULL;
     }
     vec_size_t capacity = 4;
@@ -17,7 +16,6 @@ vec_t *vec_create() {
         vector->size = 0;
         vector->capacity = capacity;
     } else {
-        fprintf(stderr, "Could not allocate memory for data\n");
         free(vector);
         return NULL;
     }
@@ -28,12 +26,10 @@ vec_t *vec_create() {
 bool vec_grow(vec_t *vector, vec_size_t new_capacity) {
     if (!vector) return false; 
     if (new_capacity <= vector->capacity) {
-        fprintf(stderr, "Cannot shrink vector\n");
         return false;
     }
     int *temp = realloc(vector->data, new_capacity * sizeof(int));
     if (temp == NULL) {
-        fprintf(stderr, "Could not reallocate vector\n");
         return false;
     }
     vector->data = temp;
@@ -58,7 +54,6 @@ bool vec_push(vec_t *vector, int value) {
 bool vec_pop(vec_t *vector, int *out) {
     if (!vector || !out) return false;
     if (vector->size < 1) {
-        fprintf(stderr, "Empty vector pop\n");
         return false;
     }
     *out = vector->data[vector->size-1];
@@ -70,7 +65,6 @@ bool vec_pop(vec_t *vector, int *out) {
 bool vec_get(vec_t *vector, int *out, vec_size_t index) {
     if (!vector || !out) return false;
     if (index >= vector->size) {
-        fprintf(stderr, "Index out of range\n");
         return false;
     }
     *out = vector->data[index];
@@ -81,7 +75,6 @@ bool vec_get(vec_t *vector, int *out, vec_size_t index) {
 bool vec_set(vec_t *vector, vec_size_t index, int value) {
     if (!vector) return false;
     if (index >= vector->size) {
-        fprintf(stderr, "Index out of range\n");
         return false;
     }
     vector->data[index] = value;

@@ -18,8 +18,8 @@ $(LIB): $(OBJ)
 	ar rcs $(LIB) $(OBJ)
 
 # Compile the test program
-$(TEST): test/test.c $(LIB)
-	$(CC) $(CFLAGS) test/test.c -Lbuild -lvec -o $(TEST)
+$(TEST): tests/test.c $(LIB)
+	$(CC) $(CFLAGS) tests/test.c -Lbuild -lvec -o $(TEST)
 
 # Clean up
 clean:
