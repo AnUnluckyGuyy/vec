@@ -98,6 +98,7 @@ bool vec_clear(vec_t * vector) {
 
 
 vec_size_t vec_size(vec_t *vector) {
+    if (!vector) return 0;
     return vector->size;
 }
 
