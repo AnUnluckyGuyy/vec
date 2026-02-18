@@ -10,6 +10,7 @@ int main() {
     if (!vec) {
         return 1;
     }
+    assert(vec->capacity == 4);
     vec_push(vec, 5);
     assert(vec->size == 1);
     assert(vec->data[0] == 5);

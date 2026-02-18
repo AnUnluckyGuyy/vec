@@ -7,7 +7,6 @@
 /*
  * vec.h - Dynamic integer vector library
  *
- * Mini Cheat Sheet:
  *
  * vec_t *v = vec_create();          // create
  * vec_push(v, 42);                  // append

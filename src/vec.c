@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 #include "vec.h"
+
+static const vec_size_t INITIAL_CAPACITY = 4;
 
 
 vec_t *vec_create() {
@@ -10,11 +11,10 @@ vec_t *vec_create() {
     if (vector == NULL) {
         return NULL;
     }
-    vec_size_t capacity = 4;
-    vector->data = malloc(sizeof(int)*capacity);
+    vector->data = malloc(sizeof(int)*INITIAL_CAPACITY);
     if (vector->data) {
         vector->size = 0;
-        vector->capacity = capacity;
+        vector->capacity = INITIAL_CAPACITY;
     } else {
         free(vector);
         return NULL;
